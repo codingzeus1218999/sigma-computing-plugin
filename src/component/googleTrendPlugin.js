@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {
   client,
-  useVariable,
   useConfig
 } from "@sigmacomputing/plugin";
 
@@ -12,12 +11,10 @@ const googleUrl = '<script type="text/javascript" src="https://ssl.gstatic.com/t
 
 client.config.configureEditorPanel([
   { name: 'Embed URL', type: 'text', defaultValue: googleUrl, Multiline: true },
-  { name: "source", type: "element" },
 ]);
 
 function GoogleTrendPlugin() {
   const [googleTrendUrl, setGoogleTrendUrl] = useState(googleUrl)
-
   const config = useConfig()
 
   useEffect(() => {
@@ -32,13 +29,13 @@ function GoogleTrendPlugin() {
     })
     return () => config
 
-  }, [])
+  }, [config])
 
 
   return (
     <GoogleTrends
       id="charts"
-      googleTrendUrl={googleUrl}
+      googleTrendUrl={googleTrendUrl}
     />
   )
 }

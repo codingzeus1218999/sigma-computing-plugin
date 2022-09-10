@@ -20,8 +20,6 @@ export default function ProductCard({ title,
   let boxBg = useColorModeValue("white !important", "#111c44 !important");
   let secondaryBg = useColorModeValue("gray.50", "whiteAlpha.100");
   let mainText = useColorModeValue("gray.800", "white");
-  let iconBox = useColorModeValue("gray.100", "whiteAlpha.200");
-  let iconColor = useColorModeValue("brand.200", "white");
 
   if (!des) {
     des = "You have the opportunity to play this game of life you need to appreciate every moment."

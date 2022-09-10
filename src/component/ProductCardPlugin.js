@@ -7,7 +7,7 @@ import {
   useElementData,
 } from "@sigmacomputing/plugin";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import ProductCard from "./ProductCard";
 
 const emptyValue = [{
@@ -33,7 +33,7 @@ export default function ProductCardPlugin() {
   const config = useConfig();
   const columnInfo = useElementColumns(config.source);
   const data = useElementData(config.source);
-  const ref = useRef();
+
 
   const [parseDate, setParseDate] = useState(emptyValue)
 
@@ -102,7 +102,7 @@ export default function ProductCardPlugin() {
 
   }
 
-  if (!parseDate || parseDate[0].title == "") {
+  if (!parseDate || parseDate[0].title === "") {
     return <div style={mystyel}>
       <div style={{ border: "solid black 1px", padding: "20px 60px" }}>
         <span style={{ color: 'black', fontSize: "1.2rem" }}>
