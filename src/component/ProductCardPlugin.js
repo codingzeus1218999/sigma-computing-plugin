@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import {
   useConfig,
@@ -7,7 +7,7 @@ import {
   useElementData,
 } from "@sigmacomputing/plugin";
 
-import { useEffect } from "react";
+
 import ProductCard from "./ProductCard";
 
 const emptyValue = [{

@@ -1,174 +1,248 @@
+import React, { useState, useEffect } from 'react'
+
+import {
+  useConfig,
+  useEditorPanelConfig,
+  useElementColumns,
+  useElementData,
+} from "@sigmacomputing/plugin";
+import { Treemap, Tooltip, Legend } from "recharts";
+// const data = [
+//   { name: "Axes", size: 1302 },
+//   { name: "Axis", size: 2593 },
+//   { name: "AnchorControl", size: 2138 },
+//   { name: "ClickControl", size: 3824 },
+//   { name: "Data", size: 20544 },
+//   { name: "DataList", size: 19788 },
+//   { name: "ArrowType", size: 698 },
+//   { name: "EdgeRenderer", size: 5569 },
+//   { name: "ScaleBinding", size: 28275 },
+//   { name: "Tree", size: 7147 },
+//   { name: "TreeBuilder", size: 9930 },
+//   {
+//     name: "operator",
+//     size: 4461,
+//   },
+// ];
 
 
-import React from 'react'
-
-import { Treemap, Tooltip, } from 'recharts';
-const data = [
-  {
-    name: 'axis',
-    children: [
-      { name: 'Axes', size: 1302 },
-      { name: 'Axis', size: 24593 },
-      { name: 'AxisGridLine', size: 652 },
-      { name: 'AxisLabel', size: 636 },
-      { name: 'CartesianAxes', size: 6703 },
-    ],
-  },
-  {
-    name: 'controls',
-    children: [
-      { name: 'AnchorControl', size: 2138 },
-      { name: 'ClickControl', size: 3824 },
-      { name: 'Control', size: 1353 },
-      { name: 'ControlList', size: 4665 },
-      { name: 'DragControl', size: 2649 },
-      { name: 'ExpandControl', size: 2832 },
-      { name: 'HoverControl', size: 4896 },
-      { name: 'IControl', size: 763 },
-      { name: 'PanZoomControl', size: 5222 },
-      { name: 'SelectionControl', size: 7862 },
-      { name: 'TooltipControl', size: 8435 },
-    ],
-  },
-  {
-    name: 'data',
-    children: [
-      { name: 'Data', size: 20544 },
-      { name: 'DataList', size: 19788 },
-      { name: 'DataSprite', size: 10349 },
-      { name: 'EdgeSprite', size: 3301 },
-      { name: 'NodeSprite', size: 19382 },
-      {
-        name: 'render',
-        children: [
-          { name: 'ArrowType', size: 698 },
-          { name: 'EdgeRenderer', size: 5569 },
-          { name: 'IRenderer', size: 353 },
-          { name: 'ShapeRenderer', size: 2247 },
-        ],
-      },
-      { name: 'ScaleBinding', size: 11275 },
-      { name: 'Tree', size: 7147 },
-      { name: 'TreeBuilder', size: 9930 },
-    ],
-  },
-  {
-    name: 'events',
-    children: [
-      { name: 'DataEvent', size: 7313 },
-      { name: 'SelectionEvent', size: 6880 },
-      { name: 'TooltipEvent', size: 3701 },
-      { name: 'VisualizationEvent', size: 2117 },
-    ],
-  },
-  {
-    name: 'legend',
-    children: [
-      { name: 'Legend', size: 20859 },
-      { name: 'LegendItem', size: 4614 },
-      { name: 'LegendRange', size: 10530 },
-    ],
-  },
-  {
-    name: 'operator',
-    children: [
-      {
-        name: 'distortion',
-        children: [
-          { name: 'BifocalDistortion', size: 4461 },
-          { name: 'Distortion', size: 6314 },
-          { name: 'FisheyeDistortion', size: 3444 },
-        ],
-      },
-      {
-        name: 'encoder',
-        children: [
-          { name: 'ColorEncoder', size: 3179 },
-          { name: 'Encoder', size: 4060 },
-          { name: 'PropertyEncoder', size: 4138 },
-          { name: 'ShapeEncoder', size: 1690 },
-          { name: 'SizeEncoder', size: 1830 },
-        ],
-      },
-      {
-        name: 'filter',
-        children: [
-          { name: 'FisheyeTreeFilter', size: 5219 },
-          { name: 'GraphDistanceFilter', size: 3165 },
-          { name: 'VisibilityFilter', size: 3509 },
-        ],
-      },
-      { name: 'IOperator', size: 1286 },
-      {
-        name: 'label',
-        children: [
-          { name: 'Labeler', size: 9956 },
-          { name: 'RadialLabeler', size: 3899 },
-          { name: 'StackedAreaLabeler', size: 3202 },
-        ],
-      },
-      {
-        name: 'layout',
-        children: [
-          { name: 'AxisLayout', size: 6725 },
-          { name: 'BundledEdgeRouter', size: 3727 },
-          { name: 'CircleLayout', size: 9317 },
-          { name: 'CirclePackingLayout', size: 12003 },
-          { name: 'DendrogramLayout', size: 4853 },
-          { name: 'ForceDirectedLayout', size: 8411 },
-          { name: 'IcicleTreeLayout', size: 4864 },
-          { name: 'IndentedTreeLayout', size: 3174 },
-          { name: 'Layout', size: 7881 },
-          { name: 'NodeLinkTreeLayout', size: 12870 },
-          { name: 'PieLayout', size: 2728 },
-          { name: 'RadialTreeLayout', size: 12348 },
-          { name: 'RandomLayout', size: 870 },
-          { name: 'StackedAreaLayout', size: 9121 },
-          { name: 'TreeMapLayout', size: 9191 },
-        ],
-      },
-      { name: 'Operator', size: 2490 },
-      { name: 'OperatorList', size: 5248 },
-      { name: 'OperatorSequence', size: 4190 },
-      { name: 'OperatorSwitch', size: 2581 },
-      { name: 'SortOperator', size: 2023 },
-    ],
-  },
-];
+const CustomizedContent = ({
+  root,
+  depth,
+  x,
+  y,
+  width,
+  height,
+  index,
+  payload,
+  colors,
+  rank,
+  name,
+}) => {
 
 
+  return (
+    <g>
+      <rect
+        x={x}
+        y={y}
+        width={width}
+        height={height}
+        style={{
+          fill: `rgb(122, 111, 155, ${Math.max(100 - 6 * (index - 1), 60)}%)`,
+          stroke: "#fff",
+          strokeWidth: 2 / (depth + 1e-10),
+          strokeOpacity: 1 / (depth + 1e-10),
+        }}
+      />
+
+      {/* <text
+
+
+        x={x + 60}
+        y={y + height / 2 + 7}
+        textAnchor="middle"
+        fill="#fff"
+        fontSize={14}
+      >
+        {`rgb(122, 111, 155, ${100 - 10 * (depth - 1)}%)`} 
+
+      {depth}
+      {index + 1}
+    </text> */}
+
+      <text
+        x={x + 14}
+        y={y + 28}
+        fill="#fff"
+        fontSize={14}
+        fillOpacity={0.9}
+      >
+        {name}
+      </text>
+    </g >
+  );
+};
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+
+    return (
+      <div
+        className="custom-tooltip"
+        style={{
+          borderRadius: "3px",
+          border: "none",
+          borderColor: "transparent",
+          // boxShadow: '0px 10px 22px -6px rgba(133,133,133,1)',
+          background: "white",
+          padding: "10px 50px",
+          outline: "none",
+          outlineStyle: "none",
+        }}
+      >
+        <p className="label">{`${payload[0].name} : ${payload[0].value}`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
 
 function TreeMap() {
+
+  useEditorPanelConfig([
+    { name: "source", type: "element" },
+    { name: "name", type: "column", source: "source", allowMultiple: false },
+    { name: "size", type: "column", source: "source", allowMultiple: false },
+  ]);
+
+  const config = useConfig();
+  const columnInfo = useElementColumns(config.source);
+  const data = useElementData(config.source);
+  const [parseDate, setParseDate] = useState([])
+
+  useEffect(() => {
+
+    const PropColumns = [
+      "name",
+      "size",
+
+
+    ]
+
+    const dataSourceColumns = PropColumns.map((x) => {
+      return config[x];
+    })
+
+    const dataSourceValues = dataSourceColumns.map((x, i) => {
+      const colValue = data[x]
+      return colValue
+    })
+
+    // const mycols = mycolsArray
+
+    // console.log("#########################################3");
+    // console.log(PropColumns);
+    // console.log(dataSourceColumns);
+    // console.log(dataSourceValues);
+    // console.log("#########################################3");
+
+    const displayData = []
+
+    if (dataSourceValues[0]) {
+
+      dataSourceValues[0].forEach((title, i) => {
+        const k = {}
+        PropColumns.forEach((col, j) => {
+
+          if (dataSourceColumns[j]) {
+            // console.log(j, i, dataSourceColumns[j], dataSourceValues[j][i])
+            if (dataSourceValues[j] && dataSourceValues[j][i]) {
+              k[col] = dataSourceValues[j][i] ?? null
+            }
+          }
+        })
+        displayData.push(k)
+      })
+      console.log("displayData");
+      console.log(displayData);
+
+      setParseDate(displayData)
+    } else {
+      setParseDate([])
+    }
+
+  }, [columnInfo, config, data]);
+
+  const mystyel = {
+    padding: "20px",
+
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "20px",
+
+    justifyContent: "center",
+    alignItems: "center"
+
+  }
+  if (!parseDate || parseDate.length === 0) {
+    return <div style={mystyel}>
+      <div style={{ border: "solid black 1px", padding: "20px 60px" }}>
+        <span style={{ color: 'black', fontSize: "1.2rem" }}>
+          Please Provide Data
+        </span>
+      </div>
+    </div>
+
+  }
+
+  if (!parseDate[0].size) {
+    return <div style={mystyel}>
+      <div style={{ border: "solid black 1px", padding: "20px 60px" }}>
+        <span style={{ color: 'black', fontSize: "1.2rem" }}>
+          Please Provide size
+        </span>
+      </div>
+    </div>
+
+  }
+
   return (
-    <div style={{
-      position: 'fixed',
-      display: 'flex',
-      background: 'white',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '100%',
-      width: '100%'
-    }} >
-      <div style={
-        {
-          border: '1px solid black'
-        }
-      }>
-
-
+    <div
+      style={{
+        position: "fixed",
+        display: "flex",
+        background: "white",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+        width: "100%",
+      }}
+    >
+      <div
+        style={{
+          border: "1px solid black",
+        }}
+      >
         <Treemap
           width={750}
           height={400}
           margin={{ top: 20, bottom: 10, left: 10, right: 20 }}
-          data={data} dataKey="size" ratio={4 / 3} stroke="#fff" fill="#8884d8" >
-
-          <Tooltip />
+          data={parseDate.sort((b, a) => a.size - b.size)}
+          dataKey="size"
+          ratio={4 / 3}
+          stroke="#fff"
+          nameKey="name"
+          fill="#8884d8"
+          content={CustomizedContent}
+        >
+          <Legend />
+          <Tooltip content={CustomTooltip} />
         </Treemap>
-
       </div>
     </div>
-
-  )
+  );
 }
 
-export default TreeMap
+export default TreeMap;
