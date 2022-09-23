@@ -7,39 +7,40 @@ import {
   useElementData,
 } from "@sigmacomputing/plugin";
 import { Treemap, Tooltip, Legend } from "recharts";
-// const data = [
-//   { name: "Axes", size: 1302 },
-//   { name: "Axis", size: 2593 },
-//   { name: "AnchorControl", size: 2138 },
-//   { name: "ClickControl", size: 3824 },
-//   { name: "Data", size: 20544 },
-//   { name: "DataList", size: 19788 },
-//   { name: "ArrowType", size: 698 },
-//   { name: "EdgeRenderer", size: 5569 },
-//   { name: "ScaleBinding", size: 28275 },
-//   { name: "Tree", size: 7147 },
-//   { name: "TreeBuilder", size: 9930 },
-//   {
-//     name: "operator",
-//     size: 4461,
-//   },
-// ];
+const mydata = [
+  { name: "Axis", size: 2593, shades: 500 },
+  { shades: 500, name: "AnchorControl", size: 2138 },
+  { shades: 500, name: "ClickControl", size: 3824 },
+  { shades: 870, name: "Data", size: 20544 },
+  { shades: 500, name: "DataList", size: 19788 },
+  { shades: 500, name: "ArrowType", size: 698 },
+  { shades: 500, name: "EdgeRenderer", size: 5569 },
+  { shades: 500, name: "ScaleBinding", size: 28275 },
+  { shades: 500, name: "Tree", size: 7147 },
+  { shades: 500, name: "TreeBuilder", size: 9930 },
+  {
+    shades: 500,
+    name: "operator",
+    size: 4461,
+  },
+];
 
 
 const CustomizedContent = ({
-  root,
+
   depth,
   x,
   y,
   width,
   height,
-  index,
-  payload,
-  colors,
-  rank,
+
+
   name,
+  shades, start, end, color
 }) => {
 
+
+  const pertage = ((shades - end) * 100) / (start - end)
 
   return (
     <g>
@@ -49,28 +50,13 @@ const CustomizedContent = ({
         width={width}
         height={height}
         style={{
-          fill: `rgb(122, 111, 155, ${Math.max(100 - 6 * (index - 1), 60)}%)`,
+          fill: color ? color : `rgb(122, 111, 155)`,
+          opacity: pertage > 60 ? pertage / 100 : 0.4,
           stroke: "#fff",
           strokeWidth: 2 / (depth + 1e-10),
           strokeOpacity: 1 / (depth + 1e-10),
         }}
       />
-
-      {/* <text
-
-
-        x={x + 60}
-        y={y + height / 2 + 7}
-        textAnchor="middle"
-        fill="#fff"
-        fontSize={14}
-      >
-        {`rgb(122, 111, 155, ${100 - 10 * (depth - 1)}%)`} 
-
-      {depth}
-      {index + 1}
-    </text> */}
-
       <text
         x={x + 14}
         y={y + 28}
@@ -84,7 +70,7 @@ const CustomizedContent = ({
   );
 };
 
-const CustomTooltip = ({ active, payload, label }) => {
+const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
 
     return (
@@ -94,7 +80,6 @@ const CustomTooltip = ({ active, payload, label }) => {
           borderRadius: "3px",
           border: "none",
           borderColor: "transparent",
-          // boxShadow: '0px 10px 22px -6px rgba(133,133,133,1)',
           background: "white",
           padding: "10px 50px",
           outline: "none",
@@ -115,30 +100,28 @@ function TreeMap() {
     { name: "source", type: "element" },
     { name: "name", type: "column", source: "source", allowMultiple: false },
     { name: "size", type: "column", source: "source", allowMultiple: false },
+    { name: "shades", type: "column", source: "source", allowMultiple: false },
+    { name: "baseColor", type: "color", allowMultiple: false },
   ]);
 
   const config = useConfig();
   const columnInfo = useElementColumns(config.source);
   const data = useElementData(config.source);
   const [parseDate, setParseDate] = useState([])
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(0)
 
   useEffect(() => {
 
     const PropColumns = [
       "name",
       "size",
-
-
+      "shades"
     ]
 
-    const dataSourceColumns = PropColumns.map((x) => {
-      return config[x];
-    })
+    const dataSourceColumns = PropColumns.map((x) => config[x])
 
-    const dataSourceValues = dataSourceColumns.map((x, i) => {
-      const colValue = data[x]
-      return colValue
-    })
+    const dataSourceValues = dataSourceColumns.map((x, i) => data[x])
 
     // const mycols = mycolsArray
 
@@ -169,6 +152,15 @@ function TreeMap() {
       console.log(displayData);
 
       setParseDate(displayData)
+
+      // console.log({ dataSourceValues })
+
+      const myscale = displayData.map(x => x.shades)
+
+      setStart(Math.max(...myscale))
+      setEnd(Math.min(...myscale))
+
+
     } else {
       setParseDate([])
     }
@@ -229,13 +221,17 @@ function TreeMap() {
           width={750}
           height={400}
           margin={{ top: 20, bottom: 10, left: 10, right: 20 }}
-          data={parseDate.sort((b, a) => a.size - b.size)}
+          // data={mydata}
+          data={parseDate}
+          // data={parseDate.sort((b, a) => a.size - b.size)}
           dataKey="size"
           ratio={4 / 3}
+
           stroke="#fff"
           nameKey="name"
           fill="#8884d8"
-          content={CustomizedContent}
+
+          content={<CustomizedContent start={start} color={config.baseColor} end={end} />}
         >
           <Legend />
           <Tooltip content={CustomTooltip} />

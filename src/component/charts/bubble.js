@@ -48,6 +48,8 @@ function Bubble() {
     { name: "y", type: "column", source: "source", allowMultiple: false },
     { name: "z", type: "column", source: "source", allowMultiple: false },
     { name: "name", type: "text", allowMultiple: false, defaultValue: "UnKnow" },
+    { name: "baseColor", type: "color", allowMultiple: false, defaultValue: "#8884d8" },
+
   ]);
 
   const config = useConfig();
@@ -144,13 +146,11 @@ function Bubble() {
         <XAxis dataKey="x" />
         <YAxis dataKey="y" />
         <ZAxis dataKey="z" range={[64, 500]} />
-        {/* <XAxis dataKey="x" name="stature" unit="cm" />
-        <ZAxis dataKey="z" range={[64, 144]} name="score" unit="km" />
-        <YAxis dataKey="y" name="weight" unit="kg" /> */}
+
         <Tooltip cursor={{ strokeDasharray: '3 3' }} />
         <Legend />
-        <Scatter data={parseDate} name={config.name ?? "UnKnow"} fill="#8884d8" />
-        {/* <Scatter name="B school" data={data02} fill="#82ca9d" /> */}
+        <Scatter data={parseDate} name={config.name ?? "UnKnow"} fill={config.baseColor ? config.baseColor : "#8884d8"} />
+
       </ScatterChart >
     </div>
   )
