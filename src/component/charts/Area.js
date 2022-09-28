@@ -175,7 +175,7 @@ export default function AreaChartPlugin() {
 	};
 	if (!parseDate || parseDate.length === 0) {
 		return (
-			<div style={mystyel}>
+			<div style={mystyel} className="bg">
 				<div style={{ border: "solid black 1px", padding: "20px 60px" }}>
 					<span style={{ color: "black", fontSize: "1.2rem" }}>
 						Please Provide Data
@@ -186,12 +186,21 @@ export default function AreaChartPlugin() {
 	}
 
 	return (
-		<div style={{ width: "100%", height: 300 }}>
+		<div
+			style={{
+				// width: "100%",
+				height: "300px",
+				margin: "20px 20px 20px 20px",
+				backgroundColor: "transparent",
+			}}
+		>
 			<div
 				style={{
-					background: "white",
-					border: "1px solid black",
-					width: "100%",
+					background: "#f1ebe5",
+					padding: "5px 0px",
+					// background: "transparent",
+					// border: "1px solid black",
+
 					// margin: '50px auto',
 				}}
 			>
@@ -200,19 +209,19 @@ export default function AreaChartPlugin() {
 						fontSize: "16px",
 						fontFamily: "sans-serif",
 						fontWeight: "300",
-						margin: "30px 40px 10px ",
+						padding: "30px 40px 10px ",
 					}}
 				>
-					{config.title}
+					<span> {config.title} </span>
 					<br />
 					<span
 						style={{
 							fontSize: "22px",
 							fontWeight: "600",
 							marginLeft: "0px",
+							color: color,
 						}}
 					>
-						{" "}
 						{sum}
 					</span>
 				</p>
@@ -220,7 +229,7 @@ export default function AreaChartPlugin() {
 				<ResponsiveContainer width="100%" height={220}>
 					<AreaChart
 						data={parseDate}
-						style={{ background: "white" }}
+						style={{ backgroundColor: "transparent" }}
 						margin={{ top: 20, right: 80, left: -20, bottom: -20 }}
 					>
 						<defs>
@@ -246,7 +255,7 @@ export default function AreaChartPlugin() {
 							dataKey="values"
 							stroke={color}
 							fillOpacity={1}
-							fill="url(#values)"
+							fill="transparent"
 						/>
 					</AreaChart>
 				</ResponsiveContainer>
@@ -270,8 +279,11 @@ export default function AreaChartPlugin() {
 								__html: color === green ? "&#9650" : "&#9660",
 							}}
 						/>
-						{lastChange.toFixed(2) + "%"}
+						<span style={{ color: color }}>
+							{lastChange.toFixed(2) + "%"}
+						</span>
 					</div>
+
 					<span>{config.label}</span>
 				</div>
 			</div>{" "}

@@ -121,7 +121,7 @@ function Bubble() {
 
   }
   if (!parseDate || parseDate.length === 0) {
-    return <div style={mystyel}>
+    return <div style={mystyel} className="bg">
       <div style={{ border: "solid black 1px", padding: "20px 60px" }}>
         <span style={{ color: 'black', fontSize: "1.2rem" }}>
           Please Provide Data

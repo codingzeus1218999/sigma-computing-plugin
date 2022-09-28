@@ -18,7 +18,7 @@ function GoogleTrends({ id, googleTrendUrl }) {
 
 
 	return (
-		<div>
+		<div className="bg">
 			<Helmet>
 				<script type="text/javascript" defer src={loader}></script>
 
