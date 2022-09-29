@@ -79,10 +79,16 @@ export default function AreaChartPlugin() {
 			name: "timeSeries",
 			type: "column",
 			source: "source",
-			allowedTypes: "",
+			allowTypes: "datetime",
 			allowMultiple: false,
 		},
-		{ name: "values", type: "column", source: "source", allowMultiple: false },
+		{
+			name: "values",
+			type: "column",
+			allowTypes: "number | integer",
+			source: "source",
+			allowMultiple: false,
+		},
 		{
 			name: "title",
 			type: "text",
@@ -100,6 +106,12 @@ export default function AreaChartPlugin() {
 			type: "color",
 			allowMultiple: false,
 			defaultValue: "#f1ebe5",
+		},
+		{
+			name: "RemoveBackground",
+			type: "checkbox",
+
+			defaultValue: false,
 		},
 	]);
 
@@ -202,7 +214,9 @@ export default function AreaChartPlugin() {
 		>
 			<div
 				style={{
-					background: config.BackgroundColor,
+					background: config.RemoveBackground
+						? "transparent"
+						: config.BackgroundColor,
 					padding: "5px 0px",
 					// background: "transparent",
 					// border: "1px solid black",
