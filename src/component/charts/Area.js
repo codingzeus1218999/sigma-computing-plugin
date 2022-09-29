@@ -95,6 +95,12 @@ export default function AreaChartPlugin() {
 			allowMultiple: false,
 			defaultValue: "Vs Last Change",
 		},
+		{
+			name: "BackgroundColor",
+			type: "color",
+			allowMultiple: false,
+			defaultValue: "#f1ebe5",
+		},
 	]);
 
 	const config = useConfig();
@@ -196,7 +202,7 @@ export default function AreaChartPlugin() {
 		>
 			<div
 				style={{
-					background: "#f1ebe5",
+					background: config.BackgroundColor,
 					padding: "5px 0px",
 					// background: "transparent",
 					// border: "1px solid black",
