@@ -1,8 +1,9 @@
+@import url("http://fonts.cdnfonts.com/css/circular-book");
+@import url("http://fonts.cdnfonts.com/css/frutiger-lt-std-2");
 body {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-		sans-serif;
+	font-family: "Circular Medium", sans-serif;
+	fontweight: "500";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }

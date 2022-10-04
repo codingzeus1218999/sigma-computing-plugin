@@ -227,8 +227,8 @@ export default function AreaChartPlugin() {
 				<p
 					style={{
 						fontSize: "16px",
-						fontFamily: "sans-serif",
-						fontWeight: "300",
+
+						fontWeight: "700",
 						padding: "30px 40px 10px ",
 					}}
 				>
@@ -238,6 +238,7 @@ export default function AreaChartPlugin() {
 						style={{
 							fontSize: "22px",
 							fontWeight: "600",
+							fontFamily: "'Frutiger LT Std', sans-serif",
 							marginLeft: "0px",
 							color: color,
 						}}
@@ -299,7 +300,12 @@ export default function AreaChartPlugin() {
 								__html: color === green ? "&#9650" : "&#9660",
 							}}
 						/>
-						<span style={{ color: color }}>
+						<span
+							style={{
+								color: color,
+								fontFamily: "'Frutiger LT Std', sans-serif",
+							}}
+						>
 							{lastChange.toFixed(2) + "%"}
 						</span>
 					</div>
