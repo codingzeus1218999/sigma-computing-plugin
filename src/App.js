@@ -13,6 +13,7 @@ import Radical from "./component/charts/Radical";
 import Treemap from "./component/charts/Treemap";
 import Radar from "./component/charts/Radar";
 import Area from "./component/charts/Area";
+import TextCloud from "./component/charts/TextCloud";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/treeMap" element={<Treemap />} />
           <Route path="/radar" element={<Radar />} />
           <Route path="/area" element={<Area />} />
+          <Route path="/textCloud" element={<TextCloud />} />
 
         </Routes>
       </BrowserRouter>
