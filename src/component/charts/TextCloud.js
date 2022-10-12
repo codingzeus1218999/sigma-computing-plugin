@@ -157,7 +157,8 @@ export default function TextCloud() {
 
   return (
     <div className="app-outer" style={{
-      fontFamily: "'Frutiger LT Std', sans-serif", background: config.RemoveBackground
+      // fontFamily: "'Frutiger LT Std', sans-serif",
+      background: config.RemoveBackground
         ? "transparent"
         : config.BackgroundColor,
     }}>
@@ -171,18 +172,9 @@ export default function TextCloud() {
           }}
           padding={5}
           fill={config.TextColor}
-
-          // fontSize={(d) => {
-          //   console.log(d.text)
-
-
-          //   return fontSizeScale(d.value / maxSize);
-          //   // return Math.sqrt(d.value) * 3;
-          //   // return Math.log2(d.value) * 5;
-
-          // }}
+          font={() => '"Circular Medium", sans-serif'}
           random={(d) => 0}
-          rotate={(d) => d.text.length > 6 ? 0 : ~~(Math.random() * 2) * 90}
+          rotate={(d) => d.text.length > 8 ? 0 : ~~(Math.random() * 2) * 90}
         /></div>
 
     </div>
