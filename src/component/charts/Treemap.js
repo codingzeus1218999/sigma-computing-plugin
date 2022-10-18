@@ -7,23 +7,23 @@ import {
   useElementData,
 } from "@sigmacomputing/plugin";
 import { Treemap, Tooltip, Legend } from "recharts";
-const mydata = [
-  { name: "Axis", size: 2593, shades: 500 },
-  { shades: 500, name: "AnchorControl", size: 2138 },
-  { shades: 500, name: "ClickControl", size: 3824 },
-  { shades: 870, name: "Data", size: 20544 },
-  { shades: 500, name: "DataList", size: 19788 },
-  { shades: 500, name: "ArrowType", size: 698 },
-  { shades: 500, name: "EdgeRenderer", size: 5569 },
-  { shades: 500, name: "ScaleBinding", size: 28275 },
-  { shades: 500, name: "Tree", size: 7147 },
-  { shades: 500, name: "TreeBuilder", size: 9930 },
-  {
-    shades: 500,
-    name: "operator",
-    size: 4461,
-  },
-];
+// const mydata = [
+//   { name: "Axis", size: 2593, shades: 500 },
+//   { shades: 500, name: "AnchorControl", size: 2138 },
+//   { shades: 500, name: "ClickControl", size: 3824 },
+//   { shades: 870, name: "Data", size: 20544 },
+//   { shades: 500, name: "DataList", size: 19788 },
+//   { shades: 500, name: "ArrowType", size: 698 },
+//   { shades: 500, name: "EdgeRenderer", size: 5569 },
+//   { shades: 500, name: "ScaleBinding", size: 28275 },
+//   { shades: 500, name: "Tree", size: 7147 },
+//   { shades: 500, name: "TreeBuilder", size: 9930 },
+//   {
+//     shades: 500,
+//     name: "operator",
+//     size: 4461,
+//   },
+// ];
 
 
 const CustomizedContent = ({

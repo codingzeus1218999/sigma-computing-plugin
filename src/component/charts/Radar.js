@@ -64,8 +64,7 @@ function MyRadarChart() {
   const columnInfo = useElementColumns(config.source);
   const data = useElementData(config.source);
   const [parseDate, setParseDate] = useState([])
-  const [start, setStart] = useState(0);
-  const [end, setEnd] = useState(0)
+
 
   useEffect(() => {
 
@@ -103,8 +102,8 @@ function MyRadarChart() {
 
       const myscale = displayData.map(x => x.shades)
 
-      setStart(Math.max(...myscale))
-      setEnd(Math.min(...myscale))
+      // setStart(Math.max(...myscale))
+      // setEnd(Math.min(...myscale))
 
 
     } else {

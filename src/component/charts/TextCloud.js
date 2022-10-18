@@ -9,17 +9,17 @@ import {
 import WordCloud from 'react-d3-cloud';
 import "../../textCloud.css";
 
-import * as d3 from "d3"
-const styles = {
-  large: {
-    fontSize: 60,
-    fontWeight: 'bold'
-  },
-  small: {
-    opacity: 0.7,
-    fontSize: 16
-  }
-};
+// import * as d3 from "d3"
+// const styles = {
+//   large: {
+//     fontSize: 60,
+//     fontWeight: 'bold'
+//   },
+//   small: {
+//     opacity: 0.7,
+//     fontSize: 16
+//   }
+// };
 
 
 // const data = [
@@ -152,8 +152,8 @@ export default function TextCloud() {
 
 
   const minFont = 14, maxFont = 72
-  var fontSizeScale = d3.scalePow().exponent(5).domain([0, 1]).range([minFont, maxFont]);
-  var maxSize = d3.max(parseDate, (d) => d.value);
+  // var fontSizeScale = d3.scalePow().exponent(5).domain([0, 1]).range([minFont, maxFont]);
+  // var maxSize = d3.max(parseDate, (d) => d.value);
 
   return (
     <div className="app-outer" style={{

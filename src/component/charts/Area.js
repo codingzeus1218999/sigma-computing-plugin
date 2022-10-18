@@ -64,7 +64,7 @@ const red = "#e04141";
 
 function getPercentageChange(baseValue, latestValue) {
 	const change = baseValue - latestValue;
-	if (change == 0) return [null, 0];
+	if (change === 0) return [null, 0];
 	// const sign = change > 0 ? '-' : '+'
 	const sign = change > 0 ? red : green;
 	const percentage = (Math.abs(change) * 100) / baseValue;
