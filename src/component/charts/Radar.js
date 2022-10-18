@@ -100,7 +100,7 @@ function MyRadarChart() {
 
       // console.log({ dataSourceValues })
 
-      const myscale = displayData.map(x => x.shades)
+      // const myscale = displayData.map(x => x.shades)
 
       // setStart(Math.max(...myscale))
       // setEnd(Math.min(...myscale))

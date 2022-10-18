@@ -151,7 +151,7 @@ export default function TextCloud() {
 
 
 
-  const minFont = 14, maxFont = 72
+  // const minFont = 14, maxFont = 72
   // var fontSizeScale = d3.scalePow().exponent(5).domain([0, 1]).range([minFont, maxFont]);
   // var maxSize = d3.max(parseDate, (d) => d.value);
 
