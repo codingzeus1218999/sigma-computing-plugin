@@ -9,7 +9,7 @@ import {
 import WordCloud from 'react-d3-cloud';
 import "../../textCloud.css";
 
-// import * as d3 from "d3"
+import * as d3 from "d3"
 // const styles = {
 //   large: {
 //     fontSize: 60,
@@ -50,22 +50,39 @@ export default function TextCloud() {
       source: "source",
       allowMultiple: false,
     },
+    { name: 'Color', type: 'group' },
     {
       name: "TextColor",
       type: "color",
       allowMultiple: false,
+      source: 'Color',
       defaultValue: "#866578",
     },
     {
       name: "BackgroundColor",
       type: "color",
-      allowMultiple: false,
+      allowMultiple: false, source: 'Color',
       defaultValue: "#D3B348",
     },
     {
       name: "RemoveBackground",
-      type: "checkbox",
+      type: "toggle", source: 'Color',
       defaultValue: false,
+    },
+    { name: 'Font', type: 'group' },
+    {
+      name: "maxFont",
+      type: "text",
+      allowMultiple: false,
+      source: 'Font',
+      defaultValue: "75",
+    },
+    {
+      name: "minFont",
+      type: "text",
+      allowMultiple: false,
+      source: 'Font',
+      defaultValue: "15",
     },
   ]);
 
@@ -151,8 +168,9 @@ export default function TextCloud() {
 
 
 
-  // const minFont = 14, maxFont = 72
-  // var fontSizeScale = d3.scalePow().exponent(5).domain([0, 1]).range([minFont, maxFont]);
+  const { minFont, maxFont } = config
+  var fontSizeScale = d3.scalePow().exponent(5).domain([0, 1]).range([minFont, maxFont]);
+  var maxSize = d3.max(parseDate, function (d) { return d.value; });
   // var maxSize = d3.max(parseDate, (d) => d.value);
 
   return (
@@ -166,13 +184,18 @@ export default function TextCloud() {
       <div >
         <WordCloud
           data={parseDate}
-          style={{
-            width: "300px",
-            height: "150px"
-          }}
+          width={900}
+          height={600}
+          style={{ width: "100%", height: "100%" }}
           padding={5}
           fill={config.TextColor}
           font={() => '"Circular Medium", sans-serif'}
+          fontSize={d => {
+            console.log(Math.sqrt(d.value) * 9, Math.log2(d.value))
+            console.log(fontSizeScale(d.value / maxSize))
+            return fontSizeScale(d.value / maxSize)
+            return Math.log2(d.value) * 9
+          }}
           random={(d) => 0}
           rotate={(d) => d.text.length > 8 ? 0 : ~~(Math.random() * 2) * 90}
         /></div>
