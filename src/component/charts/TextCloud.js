@@ -75,14 +75,14 @@ export default function TextCloud() {
       type: "text",
       allowMultiple: false,
       source: 'Font',
-      defaultValue: "75",
+      defaultValue: "50",
     },
     {
       name: "minFont",
       type: "text",
       allowMultiple: false,
       source: 'Font',
-      defaultValue: "15",
+      defaultValue: "10",
     },
   ]);
 
@@ -143,6 +143,8 @@ export default function TextCloud() {
     } else {
       setParseDate([]);
     }
+
+
   }, [columnInfo, config, data]);
   const mystyel = {
     padding: "20px",
@@ -168,9 +170,7 @@ export default function TextCloud() {
 
 
 
-  const { minFont, maxFont } = config
-  var fontSizeScale = d3.scalePow().exponent(5).domain([0, 1]).range([minFont, maxFont]);
-  var maxSize = d3.max(parseDate, function (d) { return d.value; });
+
   // var maxSize = d3.max(parseDate, (d) => d.value);
 
   return (
@@ -184,17 +184,20 @@ export default function TextCloud() {
       <div >
         <WordCloud
           data={parseDate}
-          width={900}
-          height={600}
-          style={{ width: "100%", height: "100%" }}
-          padding={5}
+          width={600}
+          height={400}
+          // style={{ width: "100%", height: "100%" }}
+          padding={2}
           fill={config.TextColor}
           font={() => '"Circular Medium", sans-serif'}
           fontSize={d => {
-            console.log(Math.sqrt(d.value) * 9, Math.log2(d.value))
-            console.log(fontSizeScale(d.value / maxSize))
-            return fontSizeScale(d.value / maxSize)
-            return Math.log2(d.value) * 9
+
+            const { minFont, maxFont } = config
+            var maxSize = d3.max(parseDate, function (d) { return d.value; });
+            var fontSizeScale = d3.scalePow().domain([0, 1]).range([minFont, maxFont]);
+            // console.log({ sum, percentage, size, font: fontSizeScale(d.value) })
+
+            return fontSizeScale(d.value / maxSize);
           }}
           random={(d) => 0}
           rotate={(d) => d.text.length > 8 ? 0 : ~~(Math.random() * 2) * 90}
