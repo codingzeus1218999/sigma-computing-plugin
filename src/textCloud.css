@@ -1,4 +1,4 @@
-svg {
+#wordcloud > svg {
 	width: 80vw;
 	max-height: 400px;
 }

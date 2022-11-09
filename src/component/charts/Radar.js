@@ -57,7 +57,22 @@ function MyRadarChart() {
     { name: "name", type: "column", source: "source", allowMultiple: false },
     { name: "size", type: "column", source: "source", allowMultiple: false },
     // { name: "MaxValue", type: "text", allowedTypes: ['number', 'integer'] },
-    { name: "baseColor", type: "color", allowMultiple: false, defaultValue: "#8884d8" },
+
+
+    { name: 'Color', type: 'group' },
+    { name: "baseColor", type: "color", source: 'Color', allowMultiple: false, defaultValue: "#8884d8" },
+
+    {
+      name: "BackgroundColor",
+      type: "color",
+      allowMultiple: false, source: 'Color',
+      defaultValue: "#D3B348",
+    },
+    {
+      name: "RemoveBackground",
+      type: "toggle", source: 'Color',
+      defaultValue: false,
+    },
   ]);
 
   const config = useConfig();
@@ -148,9 +163,17 @@ function MyRadarChart() {
 
     <RadarChart
       style={{
-        background: 'white',
-        border: '1px solid black',
-        margin: '50px auto',
+        position: "fixed",
+        display: "flex",
+
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+        width: "100%",
+
+        background: config.RemoveBackground
+          ? "transparent"
+          : config.BackgroundColor,
       }}
       margin={{ top: 20, bottom: 10, left: 50, right: 50 }}
       width={500} height={300} outerRadius="80%" data={parseDate}>

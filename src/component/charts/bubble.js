@@ -48,8 +48,21 @@ function Bubble() {
     { name: "y", type: "column", source: "source", allowMultiple: false },
     { name: "z", type: "column", source: "source", allowMultiple: false },
     { name: "name", type: "text", allowMultiple: false, defaultValue: "UnKnow" },
-    { name: "baseColor", type: "color", allowMultiple: false, defaultValue: "#8884d8" },
 
+    { name: 'Color', type: 'group' },
+    { name: "baseColor", type: "color", source: 'Color', allowMultiple: false, defaultValue: "#8884d8" },
+
+    {
+      name: "BackgroundColor",
+      type: "color",
+      allowMultiple: false, source: 'Color',
+      defaultValue: "#D3B348",
+    },
+    {
+      name: "RemoveBackground",
+      type: "toggle", source: 'Color',
+      defaultValue: false,
+    },
   ]);
 
   const config = useConfig();
@@ -134,11 +147,20 @@ function Bubble() {
   return (
 
     <div >
-      {parseDate.length}
+
       <ScatterChart width={730} height={400} style={{
-        background: 'white',
-        border: '1px solid black',
-        margin: '50px auto',
+
+        position: "fixed",
+        display: "flex",
+
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+        width: "100%",
+
+        background: config.RemoveBackground
+          ? "transparent"
+          : config.BackgroundColor,
       }}
         padding={{ top: 20, bottom: 10, left: 10, right: 20 }}
         margin={{ top: 20, bottom: 10, left: 10, right: 20 }}>

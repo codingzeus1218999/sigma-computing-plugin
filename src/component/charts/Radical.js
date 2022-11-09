@@ -61,6 +61,22 @@ function Radical() {
     { name: "name", type: "column", source: "source", allowMultiple: false },
     { name: "value", type: "column", source: "source", allowMultiple: false },
     { name: "fill", type: "column", source: "source", allowMultiple: false },
+
+
+    { name: 'Color', type: 'group' },
+    { name: "baseColor", type: "color", source: 'Color', allowMultiple: false },
+
+    {
+      name: "BackgroundColor",
+      type: "color",
+      allowMultiple: false, source: 'Color',
+      defaultValue: "#D3B348",
+    },
+    {
+      name: "RemoveBackground",
+      type: "toggle", source: 'Color',
+      defaultValue: false,
+    },
   ]);
 
   const config = useConfig();
@@ -154,12 +170,20 @@ function Radical() {
       endAngle={0}
 
       style={{
-        background: 'white',
-        border: '1px solid black',
-        margin: '50px auto',
+        position: "fixed",
+        display: "flex",
+
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+        width: "100%",
+
+        background: config.RemoveBackground
+          ? "transparent"
+          : config.BackgroundColor,
       }}
     >
-      <RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey='value' />
+      <RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background fill={config.baseColor} clockWise={true} dataKey='value' />
       <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" />
       <Tooltip />
     </ RadialBarChart>

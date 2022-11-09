@@ -18,13 +18,7 @@ function GoogleTrendPlugin() {
   const config = useConfig()
 
   useEffect(() => {
-
-    console.log("Ranjit Dev");
-    // console.log({ FirstConf: client.config.get('Embed URL') })
     client.config.subscribe((myconfig) => {
-      console.log("Ranjit Dev");
-      console.log('Lisner is working')
-      console.table({ myconfig })
       setGoogleTrendUrl(myconfig['Embed URL'])
     })
     return () => config

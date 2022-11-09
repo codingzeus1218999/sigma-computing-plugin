@@ -181,7 +181,7 @@ export default function TextCloud() {
         : config.BackgroundColor,
     }}>
 
-      <div >
+      <div id="wordcloud">
         <WordCloud
           data={parseDate}
           width={600}

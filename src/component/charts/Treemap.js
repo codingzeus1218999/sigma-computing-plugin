@@ -101,7 +101,21 @@ function TreeMap() {
     { name: "name", type: "column", source: "source", allowMultiple: false },
     { name: "size", type: "column", source: "source", allowMultiple: false },
     { name: "shades", type: "column", source: "source", allowMultiple: false },
-    { name: "baseColor", type: "color", allowMultiple: false },
+
+    { name: 'Color', type: 'group' },
+    { name: "baseColor", type: "color", source: 'Color', allowMultiple: false },
+
+    {
+      name: "BackgroundColor",
+      type: "color",
+      allowMultiple: false, source: 'Color',
+      defaultValue: "#D3B348",
+    },
+    {
+      name: "RemoveBackground",
+      type: "toggle", source: 'Color',
+      defaultValue: false,
+    },
   ]);
 
   const config = useConfig();
@@ -205,38 +219,38 @@ function TreeMap() {
       style={{
         position: "fixed",
         display: "flex",
-        background: "white",
+
         justifyContent: "center",
         alignItems: "center",
         height: "100%",
         width: "100%",
+
+        background: config.RemoveBackground
+          ? "transparent"
+          : config.BackgroundColor,
       }}
     >
-      <div
-        style={{
-          border: "1px solid black",
-        }}
+
+      <Treemap
+        width={750}
+        height={400}
+        margin={{ top: 20, bottom: 10, left: 10, right: 20 }}
+        // data={mydata}
+        data={parseDate}
+        // data={parseDate.sort((b, a) => a.size - b.size)}
+        dataKey="size"
+        // ratio={4 / 3}
+
+        stroke="#fff"
+        nameKey="name"
+        fill="#8884d8"
+
+        content={<CustomizedContent start={start} color={config.baseColor} end={end} />}
       >
-        <Treemap
-          width={750}
-          height={400}
-          margin={{ top: 20, bottom: 10, left: 10, right: 20 }}
-          // data={mydata}
-          data={parseDate}
-          // data={parseDate.sort((b, a) => a.size - b.size)}
-          dataKey="size"
-          ratio={4 / 3}
+        <Legend />
+        <Tooltip content={CustomTooltip} />
+      </Treemap>
 
-          stroke="#fff"
-          nameKey="name"
-          fill="#8884d8"
-
-          content={<CustomizedContent start={start} color={config.baseColor} end={end} />}
-        >
-          <Legend />
-          <Tooltip content={CustomTooltip} />
-        </Treemap>
-      </div>
     </div>
   );
 }
