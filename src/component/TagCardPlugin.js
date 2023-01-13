@@ -8,26 +8,43 @@ import {
 } from "@sigmacomputing/plugin";
 
 
-import ProductCard from "./ProductCard";
+import TagCard from "./TagCard";
 
 const emptyValue = [{
-  title: "",
-  title_icon: "",
-  des: "",
-  small_icon: "",
-  small_text: ""
+  Post_Title: "Your first insight from Boldlens",
+  Category_id: "3",
+  Tag: "hash,tag, hash,tag",
+  Draft: "",
+  Description: "",
+  First_name: "Millan",
+  Last_name: "Lakhani",
+  Person_title: "Lead Developer",
+  Post_Create_time: "",
 }]
+// const emptyValue = [{
+//   Post_Title: "",
+//   Category_id: "",
+//   Tag: "",
+//   Draft: "",
+//   Description: "",
+//   First_name: "",
+//   Last_name: "",
+//   Person_title: "",
+//   Post_Create_time: "",
+// }]
 
 export default function ProductCardPlugin() {
   useEditorPanelConfig([
     { name: "source", type: "element" },
-    { name: "title", type: "column", source: "source", allowMultiple: false },
-    { name: "title_icon", type: "column", source: "source", allowMultiple: false },
-    { name: "des", type: "column", source: "source", allowMultiple: false, placeholder: "Max Length 90" },
-    { name: "small_icon", type: "column", source: "source", allowMultiple: false },
-    { name: "small_text", type: "column", source: "source", allowMultiple: false },
-
-
+    { name: "Post_Title", type: "column", source: "source", allowMultiple: false },
+    { name: "Category_id", type: "column", source: "source", allowMultiple: false },
+    { name: "Tag", type: "column", source: "source", allowMultiple: false },
+    { name: "Draft", type: "column", source: "source", allowMultiple: false },
+    { name: "Description", type: "column", source: "source", allowMultiple: false },
+    { name: "First_name", type: "column", source: "source", allowMultiple: false },
+    { name: "Last_name", type: "column", source: "source", allowMultiple: false },
+    { name: "Person_title", type: "column", source: "source", allowMultiple: false },
+    { name: "Post_Create_time", type: "column", source: "source", allowMultiple: false },
   ]);
 
   const config = useConfig();
@@ -40,11 +57,15 @@ export default function ProductCardPlugin() {
   useEffect(() => {
 
     const PropColumns = [
-      "title",
-      "title_icon",
-      "des",
-      "small_icon",
-      "small_text",
+      "Post_Title",
+      "Category_id",
+      "Tag",
+      "Draft",
+      "Description",
+      "First_name",
+      "Last_name",
+      "Person_title",
+      "Post_Create_time",
     ]
 
     const dataSourceColumns = PropColumns.map((x) => {
@@ -114,9 +135,10 @@ export default function ProductCardPlugin() {
   }
 
   return <div style={mystyel} className="bg">
+
     {
       parseDate.map((x, i) => {
-        return <ProductCard key={i} {...x} />
+        return <TagCard key={i} {...x} />
       })
     }
 

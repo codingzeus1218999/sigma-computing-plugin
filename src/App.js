@@ -2,6 +2,7 @@ import React from "react";
 
 import "./App.css";
 import ProductCardPlugin from "./component/ProductCardPlugin";
+import TagCardPlugin from "./component/TagCardPlugin";
 import {
   BrowserRouter,
   Routes,
@@ -31,6 +32,7 @@ function App() {
           <Route path="/radar" element={<Radar />} />
           <Route path="/area" element={<Area />} />
           <Route path="/textCloud" element={<TextCloud />} />
+          <Route path="/tagCard" element={<TagCardPlugin />} />
 
         </Routes>
       </BrowserRouter>
