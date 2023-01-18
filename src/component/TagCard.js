@@ -45,7 +45,9 @@ export default function TagCard({
           <div className='sub-text'>{Person_title}</div>
           {Post_Create_time && <div className='sub-text-sm'> {dateFromat(Post_Create_time)}</div>}
         </div>
-        <div id="icon-lg"><IconButton className='gray-k' colorScheme='gray' aria-label='Search database' size='sm' fontSize='28px' icon={<MdMoreHoriz />} /></div>
+        <div id="icon-lg">
+          {/* <IconButton className='gray-k' colorScheme='gray' aria-label='Search database' size='sm' fontSize='28px' icon={<MdMoreHoriz />} /> */}
+        </div>
       </div>
       <div id="body">
         <div id="posttile">{Post_Title}</div>
@@ -67,9 +69,9 @@ export default function TagCard({
       <div id="bottom">
         <div id="icon" style={{ margin: '5px 10px 5px 0px' }} > <MdTune fontSize='18px' /></div>
         <div style={{ marginRight: 'auto' }}>Category</div>
-        <div className="outline-Button">Publish</div>
+        {/* <div className="outline-Button">Publish</div>
         <div className="outline-Button">Edit</div>
-        <div className="outline-Button">Destory</div>
+        <div className="outline-Button">Destory</div> */}
       </div>
       {Tag && <div id="footer" >
         <div className='mtop'>  Tags: </div>

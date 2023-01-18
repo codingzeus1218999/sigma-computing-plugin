@@ -60,8 +60,10 @@ div#nameplate {
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
+    list-style-position: inside;
 }
 div#bottom {
+    margin: 8px 0px;
     font-size: 12px;
     display: inline-flex;
     align-items: center;

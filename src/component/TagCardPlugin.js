@@ -53,7 +53,7 @@ export default function ProductCardPlugin() {
     {
       name: "RemoveBackground",
       type: "toggle", source: 'Color',
-      defaultValue: false,
+      defaultValue: true,
     },
     { name: "Post_Title", type: "column", source: "source", allowMultiple: false },
     // { name: "Category_id", type: "column", source: "source", allowMultiple: false },
