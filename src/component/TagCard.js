@@ -46,7 +46,9 @@ export default function TagCard({
           {Post_Create_time && <div className='sub-text-sm'> {dateFromat(Post_Create_time)}</div>}
         </div>
         <div id="icon-lg">
-          {/* <IconButton className='gray-k' colorScheme='gray' aria-label='Search database' size='sm' fontSize='28px' icon={<MdMoreHoriz />} /> */}
+          {false &&
+            <IconButton className='gray-k' colorScheme='gray' aria-label='Search database' size='sm' fontSize='28px' icon={<MdMoreHoriz />} />
+          }
         </div>
       </div>
       <div id="body">
