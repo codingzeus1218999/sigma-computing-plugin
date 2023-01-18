@@ -16,7 +16,7 @@ const emptyValue = [{
   Tag: "hash,tag, hash,tag",
   Draft: "",
   Description: "",
-  Tag_Icon_URL: 'https://i.ibb.co/ZWxRPRq/Venus-Logo.png',
+  Tag_Icon_URL: '',
   First_name: "Millan",
   Last_name: "Lakhani",
   Person_title: "Lead Developer",
@@ -37,6 +37,24 @@ const emptyValue = [{
 export default function ProductCardPlugin() {
   useEditorPanelConfig([
     { name: "source", type: "element" },
+    { name: 'Color', type: 'group' },
+    {
+      name: "CardColor",
+      type: "color",
+      allowMultiple: false, source: 'Color',
+      defaultValue: "white",
+    },
+    {
+      name: "BackgroundColor",
+      type: "color",
+      allowMultiple: false, source: 'Color',
+      defaultValue: "#D3B348",
+    },
+    {
+      name: "RemoveBackground",
+      type: "toggle", source: 'Color',
+      defaultValue: false,
+    },
     { name: "Post_Title", type: "column", source: "source", allowMultiple: false },
     // { name: "Category_id", type: "column", source: "source", allowMultiple: false },
     { name: "Tag", type: "column", source: "source", allowMultiple: false },
@@ -122,8 +140,7 @@ export default function ProductCardPlugin() {
     gap: "20px",
 
     justifyContent: "center",
-    alignItems: "center"
-
+    alignItems: "flex-start"
   }
 
   if (!parseDate || parseDate[0].title === "") {
@@ -137,11 +154,24 @@ export default function ProductCardPlugin() {
 
   }
 
-  return <div style={mystyel} className="bg">
+  return <div className="app-outer" style={{
+    padding: "20px",
+
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "20px",
+
+    justifyContent: "center",
+    alignItems: "center",
+    // fontFamily: "'Frutiger LT Std', sans-serif",
+    background: config.RemoveBackground
+      ? "transparent"
+      : config.BackgroundColor,
+  }}>
 
     {
       parseDate.map((x, i) => {
-        return <TagCard key={i} {...x} />
+        return <TagCard bg={config.CardColor} key={i} {...x} />
       })
     }
 

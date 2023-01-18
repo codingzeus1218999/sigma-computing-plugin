@@ -11,7 +11,7 @@ import { MdMoreHoriz, MdTune } from 'react-icons/md'
 // import { Card, CardHeader, CardBody, Heading, CardFooter } from '@chakra-ui/react'
 
 export default function TagCard({
-
+  bg,
   Post_Title,
   // Category_id,
   Tag,
@@ -35,7 +35,7 @@ export default function TagCard({
   }
 
   return (
-    <div id="tagcard">
+    <div id="tagcard" style={{ background: bg }}>
       <div id="header">
         <div id="icon"> <Flex w='100%' mb='10px'>
           <Image src={Tag_Icon_URL ? Tag_Icon_URL : 'https://i.ibb.co/ZWxRPRq/Venus-Logo.png'} w="60px" h="60px" me='auto' />
@@ -52,7 +52,7 @@ export default function TagCard({
         <div >
           <Text
             maxW="40ch"
-            noOfLines={3}
+          // noOfLines={3}
           >
 
             <div id="postbody" dangerouslySetInnerHTML={{ __html: Description }}>
