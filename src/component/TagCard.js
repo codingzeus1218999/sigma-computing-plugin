@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import { MdTimer, } from "react-icons/md";
 import "./TagCard.css"
 import {
@@ -25,7 +25,8 @@ export default function TagCard({
 
 }) {
 
-
+  const [lines, setLines] = useState(3)
+  const toggleLines = () => setLines(lines !== 3 ? 3 : null);
   const dateFromat = (x) => {
     if (!x) return "";
     const d = new Date(x)
@@ -54,17 +55,28 @@ export default function TagCard({
       <div id="body">
         <div id="posttile">{Post_Title}</div>
         <div >
-          <Text
-            maxW="40ch"
-          // noOfLines={3}
-          >
 
-            <div id="postbody" dangerouslySetInnerHTML={{ __html: Description }}>
-              {/* { Description } */}
-            </div>
+          {lines ?
+            <Text
+              maxW="40ch"
+              onClick={toggleLines}
+              noOfLines={3} className="highlight"
+            >
+              <div id="postbody" dangerouslySetInnerHTML={{ __html: Description }}>
+                {/* { Description } */}
+              </div>
+            </Text>
+            :
 
+            <Text
+              onClick={toggleLines}
 
-          </Text>
+            >
+              <div id="postbody" dangerouslySetInnerHTML={{ __html: Description }}>
+                {/* { Description } */}
+              </div>
+            </Text>
+          }
 
         </div>
       </div>
@@ -75,12 +87,13 @@ export default function TagCard({
         <div className="outline-Button">Edit</div>
         <div className="outline-Button">Destory</div> */}
       </div>
-      {Tag && <div id="footer" >
-        <div className='mtop'>  Tags: </div>
-        <div id="tags-outer">  {Tag.split(",").map((x) => <div id="insidetag">#{x} </div>)} </div>
-      </div>
+      {
+        Tag && <div id="footer" >
+          <div className='mtop'>  Tags: </div>
+          <div id="tags-outer">  {Tag.split(",").map((x) => <div id="insidetag">#{x} </div>)} </div>
+        </div>
       }
-    </div>
+    </div >
 
   )
 }

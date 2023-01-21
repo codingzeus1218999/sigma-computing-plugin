@@ -19,6 +19,10 @@ div#tagcard {
    
 }
 
+.highlight1:hover{
+  opacity: 0.8;
+}
+
 .gray-k {
   background-color: var(--gray-k) !important;
 }
