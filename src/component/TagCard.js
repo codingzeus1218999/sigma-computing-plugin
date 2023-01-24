@@ -57,25 +57,30 @@ export default function TagCard({
         <div >
 
           {lines ?
-            <Text
-              maxW="40ch"
-              onClick={toggleLines}
-              noOfLines={3} className="highlight"
-            >
-              <div id="postbody" dangerouslySetInnerHTML={{ __html: Description }}>
-                {/* { Description } */}
-              </div>
-            </Text>
+            <>
+              <Text
+                maxW="40ch"
+
+                noOfLines={3} className="highlight"
+              >
+                <div id="postbody" dangerouslySetInnerHTML={{ __html: Description }}>
+                  {/* { Description } */}
+                </div>
+              </Text>
+              <p onClick={toggleLines} class="readmore">Read more ...</p>
+            </>
             :
+            <>
+              <Text
+                onClick={toggleLines}
 
-            <Text
-              onClick={toggleLines}
-
-            >
-              <div id="postbody" dangerouslySetInnerHTML={{ __html: Description }}>
-                {/* { Description } */}
-              </div>
-            </Text>
+              >
+                <div id="postbody" dangerouslySetInnerHTML={{ __html: Description }}>
+                  {/* { Description } */}
+                </div>
+              </Text>
+              <p onClick={toggleLines} class="readmore">Read less</p>
+            </>
           }
 
         </div>

@@ -19,8 +19,30 @@ div#tagcard {
    
 }
 
-.highlight1:hover{
+.readmore{
+  padding: 4px 16px;
+  margin-top: 10px;
+  color: white;
+  width: max-content;
+  animation-duration: 500ms;
+  transition-duration: 500ms;
+
+  background-color: #7c3aed;
+  /* background-color: #5b21b6; */
+  /* background-color: #8b5cf6; */
+}
+
+.readmore:hover{
+  background-color: #8b5cf6;
+  /* background-color: #5b21b6; */
+}
+.highlight{
+  transition-duration: 500ms;
+}
+
+.highlight:hover{
   opacity: 0.8;
+
 }
 
 .gray-k {

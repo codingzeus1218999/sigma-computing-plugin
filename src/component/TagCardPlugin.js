@@ -162,7 +162,7 @@ export default function ProductCardPlugin() {
     gap: "20px",
 
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "flex-start",
     // fontFamily: "'Frutiger LT Std', sans-serif",
     background: config.RemoveBackground
       ? "transparent"
