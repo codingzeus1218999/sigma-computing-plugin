@@ -30,7 +30,7 @@ div#tagcard {
   background-color: #bfadd3;
   /* background-color: #5b21b6; */
   /* background-color: #8b5cf6; */
-  border-radius: 25%; 
+  border-radius: 5px; 
 }
 
 .readmore:hover{
