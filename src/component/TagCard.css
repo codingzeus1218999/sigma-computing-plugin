@@ -91,13 +91,13 @@ div#nameplate {
     line-height: 20px;
     list-style-position: inside;
 }
-div#bottom {
+div#{
     margin: 8px 0px;
     font-size: 12px;
     display: inline-flex;
     align-items: center;
     visibility: hidden;
-    height: 5px;
+    height: 2px;
 }
 .outline-Button {
   display: inline-flex;
