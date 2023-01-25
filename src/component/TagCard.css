@@ -84,6 +84,7 @@ div#nameplate {
     color: var(--title-p);
     font-weight: 600; 
     line-height: 22px;
+    margin-buttom: 5px;
 }
 #postbody {
     font-weight: 400;
@@ -92,7 +93,7 @@ div#nameplate {
     list-style-position: inside;
 }
 div#bottom{
-    margin: 8px 0px;
+    margin: 2px 0px;
     font-size: 12px;
     display: inline-flex;
     align-items: center;
