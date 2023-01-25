@@ -19,6 +19,8 @@ div#tagcard {
     border-radius: 3px   
 }
 
+.attachment__size {display: none;}
+
 .readmore{
   padding: 4px 16px;
   margin-top: 10px;
@@ -94,6 +96,8 @@ div#bottom {
     font-size: 12px;
     display: inline-flex;
     align-items: center;
+    visibility: hidden;
+    height: 5px;
 }
 .outline-Button {
   display: inline-flex;
