@@ -94,7 +94,6 @@ export default function TagCard({
       </div>
       {
         Tag && <div id="footer" >
-          /*<div className='mtop'>  Tags: </div>*/
           <div id="tags-outer">  {Tag.split(",").map((x) => <div id="insidetag">#{x} </div>)} </div>
         </div>
       }
