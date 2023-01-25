@@ -27,7 +27,7 @@ export default function TagCard({
 
   const [lines, setLines] = useState(3)
   const toggleLines = () => setLines(lines !== 3 ? 3 : null);
-  const dateFromat = (x) => {
+  const dateFormat = (x) => {
     if (!x) return "";
     const d = new Date(x)
     if (!d) return "";
@@ -44,7 +44,7 @@ export default function TagCard({
         <div id="nameplate">
           <div id="card_head">{First_name} {Last_name}</div>
           <div className='sub-text'>{Person_title}</div>
-          {Post_Create_time && <div className='sub-text-sm'> {dateFromat(Post_Create_time)}</div>}
+          {Post_Create_time && <div className='sub-text-sm'> {dateFormat(Post_Create_time)}</div>}
         </div>
         <div id="icon-lg">
           {false &&
