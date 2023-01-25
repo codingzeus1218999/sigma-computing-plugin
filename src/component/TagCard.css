@@ -91,7 +91,7 @@ div#nameplate {
     line-height: 20px;
     list-style-position: inside;
 }
-div#{
+div#bottom{
     margin: 8px 0px;
     font-size: 12px;
     display: inline-flex;
