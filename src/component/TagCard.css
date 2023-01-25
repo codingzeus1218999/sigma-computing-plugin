@@ -16,7 +16,7 @@ div#tagcard {
     color: var(--text-p);
     font-weight: 400;
     font-size: 12px;
-    border-radius: 25px   
+    border-radius: 3px   
 }
 
 .readmore{
@@ -30,6 +30,7 @@ div#tagcard {
   background-color: #bfadd3;
   /* background-color: #5b21b6; */
   /* background-color: #8b5cf6; */
+  border-radius: 50%; 
 }
 
 .readmore:hover{
