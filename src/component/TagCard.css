@@ -6,7 +6,7 @@ div#tagcard {
     width: clamp(10rem, 20rem, 20rem );
     padding: 1rem 1.5rem;
     --gray-k : #FFFFFF;
-    --text-p : #FFFFFF;
+    --text-p : #0A0A0A;
     --text-s : #FFFFFF;
     --title-p : #FFFFFF; 
     --bg-p : #f4ebe4;
