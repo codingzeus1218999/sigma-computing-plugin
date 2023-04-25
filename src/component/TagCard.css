@@ -24,7 +24,7 @@ div#tagcard {
 .readmore{
   padding: 4px 16px;
   margin-top: 10px;
-  color: white;
+  color: #0A0A0A;
   width: max-content;
   animation-duration: 500ms;
   transition-duration: 500ms;
