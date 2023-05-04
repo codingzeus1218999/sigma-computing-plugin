@@ -29,14 +29,14 @@ div#tagcard {
   animation-duration: 500ms;
   transition-duration: 500ms;
 
-  background-color: #bfadd3;
+  background-color: #201449;
   /* background-color: #5b21b6; */
   /* background-color: #8b5cf6; */
   border-radius: 5px; 
 }
 
 .readmore:hover{
-  background-color: #8b5cf6;
+  background-color: #201449;
   /* background-color: #5b21b6; */
 }
 .highlight{
