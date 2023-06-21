@@ -32,7 +32,7 @@ export default function TagCard({
     const d = new Date(x)
     if (!d) return "";
 
-    return `${d.getDate()}`\`${d.getMonth() + 1}`\`${d.getFullYear()}`;
+    return `${d.getDate()}`+\+`${d.getMonth() + 1}`+\+`${d.getFullYear()}`;
   }
 
   return (
