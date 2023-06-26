@@ -11,15 +11,15 @@ import {
 import TagCard from "./TagCard";
 
 const emptyValue = [{
-  Post_Title: "Your first insight from Boldlens",
+  Post_Title: "Generating insights...",
   Category_id: "3",
-  Tag: "hash,tag, hash,tag",
+  Tag: "classifying, sentiment",
   Draft: "",
   Description: "",
   Tag_Icon_URL: '',
-  First_name: "Millan",
-  Last_name: "Lakhani",
-  Person_title: "Lead Developer",
+  First_name: "BoldLens",
+  Last_name: "A.I",
+  Person_title: "",
   Post_Create_time: "",
 }]
 // const emptyValue = [{
