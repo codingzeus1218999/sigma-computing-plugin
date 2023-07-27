@@ -165,7 +165,6 @@ function MyRadarChart() {
       style={{
         position: "fixed",
         display: "flex",
-        cx="50%", cy="50%",
         justifyContent: "center",
         alignItems: "center",
         height: "100%",
