@@ -71,7 +71,7 @@ function MyRadarChart() {
     {
       name: "RemoveBackground",
       type: "toggle", source: 'Color',
-      defaultValue: false,
+      defaultValue: true,
     },
   ]);
 
