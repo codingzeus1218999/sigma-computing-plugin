@@ -66,7 +66,7 @@ function MyRadarChart() {
       name: "BackgroundColor",
       type: "color",
       allowMultiple: false, source: 'Color',
-      defaultValue: "#D3B348",
+      defaultValue: "#F1EAE5",
     },
     {
       name: "RemoveBackground",
