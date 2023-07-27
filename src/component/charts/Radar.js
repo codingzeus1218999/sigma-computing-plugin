@@ -181,7 +181,7 @@ function MyRadarChart() {
       <PolarAngleAxis dataKey="name" />
       <PolarRadiusAxis />
       <Tooltip />
-      <Radar dataKey="size" stroke="#8884d8" fill={config.baseColor ? config.baseColor : "#8884d8"} fillOpacity={0.6} />
+      <Radar dataKey="size" stroke="#201449" fill={config.baseColor ? config.baseColor : "#201449"} fillOpacity={0.6} />
     </RadarChart>
 
   );
