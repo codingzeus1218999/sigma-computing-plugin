@@ -6,7 +6,7 @@ import {
   useElementColumns,
   useElementData,
 } from "@sigmacomputing/plugin";
-import { Radar, RadarChart, PolarGrid, Tooltip, PolarAngleAxis, PolarRadiusAxis, } from 'recharts';
+import { Radar, RadarChart, Tooltip, PolarAngleAxis, } from 'recharts';
 
 
 // const mydata = [
