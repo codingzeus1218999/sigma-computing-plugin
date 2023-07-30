@@ -176,9 +176,9 @@ function MyRadarChart() {
       }}
       margin={{ top: 20, bottom: 10, left: 50, right: 50 }}
       width={500} height={300} outerRadius="80%" data={parseDate}>
-      <PolarGrid />
+      {/* <PolarGrid /> */}
       <PolarAngleAxis dataKey="name" />
-      <PolarRadiusAxis />
+      {/* <PolarRadiusAxis /> */}
       <Tooltip />
       <Radar dataKey="size" stroke="#201449" fill={config.baseColor ? config.baseColor : "#201449"} fillOpacity={0.6} />
     </RadarChart>
