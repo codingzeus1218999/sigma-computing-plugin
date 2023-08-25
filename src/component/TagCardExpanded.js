@@ -59,7 +59,7 @@ export default function TagCardExpanded({
           {lines ?
             <>
               <Text
-                maxW="80ch"
+                maxW="200ch"
 
                 noOfLines={40} className="highlight"
               >
