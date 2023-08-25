@@ -61,7 +61,7 @@ export default function TagCard({
               <Text
                 maxW="40ch"
 
-                noOfLines={3} className="highlight"
+                noOfLines={40} className="highlight"
               >
                 <div id="postbody" dangerouslySetInnerHTML={{ __html: Description }}>
                   {/* { Description } */}
