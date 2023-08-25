@@ -36,7 +36,7 @@ export default function TagCardExpanded({
   }
 
   return (
-    <div id="tagcard" style={{ background: bg }}>
+    <div id="tagcardexpanded" style={{ background: bg }}>
       <div id="header">
         <div id="icon"> <Flex w='100%' mb='10px'>
           <Image src={Tag_Icon_URL ? Tag_Icon_URL : 'https://assets.boldlens.ai/logo/logomark-192x192.png'} w="60px" h="60px" me='auto' />
