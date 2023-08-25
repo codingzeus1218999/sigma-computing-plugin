@@ -10,7 +10,7 @@ import { MdMoreHoriz, MdTune } from 'react-icons/md'
 
 // import { Card, CardHeader, CardBody, Heading, CardFooter } from '@chakra-ui/react'
 
-export default function TagCard({
+export default function TagCardExpanded({
   bg,
   Post_Title,
   // Category_id,
