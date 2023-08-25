@@ -3,7 +3,7 @@ div#tagcardexpanded {
     flex-direction: column;
 
 
-    width: clamp(10rem, 20rem, 20rem );
+    width: clamp(20rem, 40rem, 40rem );
     padding: 1rem 1.5rem;
     --gray-k : #0A0A0A;
     --text-p : #0A0A0A;
