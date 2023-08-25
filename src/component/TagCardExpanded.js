@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 // import { MdTimer, } from "react-icons/md";
-import "./TagCard.css"
+import "./TagCardExpanded.css"
 import {
   Text,
   Flex, IconButton, Image
