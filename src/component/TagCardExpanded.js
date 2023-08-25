@@ -59,7 +59,7 @@ export default function TagCard({
           {lines ?
             <>
               <Text
-                maxW="40ch"
+                maxW="80ch"
 
                 noOfLines={40} className="highlight"
               >
