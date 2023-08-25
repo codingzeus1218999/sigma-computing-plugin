@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import ProductCardPlugin from "./component/ProductCardPlugin";
 import TagCardPlugin from "./component/TagCardPlugin";
+import TagCardPluginExpanded from "./component/TagCardPluginExpanded";
 import {
   BrowserRouter,
   Routes,
@@ -33,7 +34,7 @@ function App() {
           <Route path="/area" element={<Area />} />
           <Route path="/textCloud" element={<TextCloud />} />
           <Route path="/tagCard" element={<TagCardPlugin />} />
-
+          <Route path="/tagCardExpanded" element={<TagCardPluginExpanded />} />
         </Routes>
       </BrowserRouter>
 
