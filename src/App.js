@@ -34,6 +34,7 @@ function App() {
           <Route path="/area" element={<Area />} />
           <Route path="/textCloud" element={<TextCloud />} />
           <Route path="/tagCard" element={<TagCardPlugin />} />
+          <Route path="/tagCardExpanded" element={<TagCardPlugin />} />  
           <Route path="/tagCardExpanded" element={<TagCardPluginExpanded />} />
         </Routes>
       </BrowserRouter>
