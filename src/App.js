@@ -2,9 +2,9 @@ import React from "react";
 
 import "./App.css";
 import ProductCardPlugin from "./component/ProductCardPlugin";
-import TagCardPlugin from "./component/TagCardPlugin";
+import TagCard from "./component/TagCardPlugin";
 import TagCardPluginExpanded from "./component/TagCardPluginExpanded";
-import TagCard from "./component/TagCard";
+//import TagCard from "./component/TagCard";
 import {
   BrowserRouter,
   Routes,
