@@ -8,8 +8,7 @@ import {
 } from "@sigmacomputing/plugin";
 
 
-import TagCard from "./TagCard
-";
+import TagCard from "./TagCard";
 
 const emptyValue = [{
   Post_Title: "Generating insights...",
