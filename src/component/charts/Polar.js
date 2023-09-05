@@ -40,10 +40,16 @@ export default function Polar() {
 
     { name: "options", type: "group" },
     {
-      name: "showLegend",
+      name: "showLabel",
       type: "toggle",
       source: "options",
       defaultValue: true,
+    },
+    {
+      name: "showLegend",
+      type: "toggle",
+      source: "options",
+      defaultValue: false,
     },
   ]);
 
@@ -74,9 +80,23 @@ export default function Polar() {
         ],
       });
       setOptions({
+        scales: {
+          r: {
+            pointLabels: {
+              display: config.showLabel,
+              centerPointLabels: true,
+              font: {
+                size: 12,
+              },
+            },
+          },
+        },
         plugins: {
           legend: {
             display: config.showLegend,
+            labels: {
+              usePointStyle: true,
+            },
           },
           colors: {
             enabled: true,
