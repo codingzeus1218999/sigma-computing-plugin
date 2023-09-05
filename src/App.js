@@ -16,6 +16,7 @@ import Treemap from "./component/charts/Treemap";
 import Radar from "./component/charts/Radar";
 import Area from "./component/charts/Area";
 import TextCloud from "./component/charts/TextCloud";
+import Polar from "./component/charts/Polar";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/treeMap" element={<Treemap />} />
           <Route path="/radar" element={<Radar />} />
           <Route path="/area" element={<Area />} />
+          <Route path="/polar" element={<Polar />} />
           <Route path="/textCloud" element={<TextCloud />} />
           <Route path="/tagCard" element={<TagCardPlugin />} />
           <Route path="/tagCardExpanded" element={<TagCardPlugin />} />  
