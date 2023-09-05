@@ -5,8 +5,16 @@ import {
   useElementColumns,
   useElementData,
 } from "@sigmacomputing/plugin";
-// import Chart from "chart.js/auto";
+import {
+  Chart as ChartJS,
+  RadialLinearScale,
+  ArcElement,
+  Tooltip,
+  Legend,
+} from "chart.js";
 import { PolarArea } from "react-chartjs-2";
+
+ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 export default function Polar() {
   useEditorPanelConfig([
@@ -23,7 +31,7 @@ export default function Polar() {
       defaultValue: "#8884d8",
     },
     {
-      name: "singleColor",
+      name: "useColor",
       type: "toggle",
       source: "colors",
       defaultValue: false,
@@ -57,7 +65,7 @@ export default function Polar() {
       datasets: [
         {
           data: values,
-          backgroundColor: config.singleColor
+          backgroundColor: config.useColor
             ? [...Array(labels.length)].fill(config.chartColor)
             : null,
         },
