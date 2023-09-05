@@ -35,7 +35,27 @@ export default function Polar() {
       name: "singleColor",
       type: "toggle",
       source: "colors",
-      defaultValue: false,
+      defaultValue: true,
+    },
+    {
+      name: "backgroundColor",
+      type: "color",
+      source: "colors",
+      allowMultiple: false,
+      defaultValue: "#1D133D",
+    },
+    {
+      name: "removeBackgroundColor",
+      type: "toggle",
+      source: "colors",
+      defaultValue: true,
+    },
+    {
+      name: "legendColor",
+      type: "color",
+      source: "colors",
+      allowMultiple: false,
+      defaultValue: "#ffffff",
     },
 
     { name: "options", type: "group" },
@@ -96,6 +116,7 @@ export default function Polar() {
             display: config.showLegend,
             labels: {
               usePointStyle: true,
+              color: config.legendColor,
             },
           },
           colors: {
@@ -139,7 +160,14 @@ export default function Polar() {
     );
   }
   return (
-    <div style={{ width: "100%" }}>
+    <div
+      style={{
+        width: "100%",
+        background: config.removeBackgroundColor
+          ? "transparent"
+          : config.backgroundColor,
+      }}
+    >
       <div style={{ padding: "20px", width: "900px", margin: "0 auto" }}>
         <PolarArea data={dataPolar} options={options} />
       </div>
