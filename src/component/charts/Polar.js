@@ -5,7 +5,7 @@ import {
   useElementColumns,
   useElementData,
 } from "@sigmacomputing/plugin";
-import Chart from "chart.js/auto";
+// import Chart from "chart.js/auto";
 import { PolarArea } from "react-chartjs-2";
 
 export default function Polar() {
