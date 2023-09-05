@@ -11,10 +11,11 @@ import {
   ArcElement,
   Tooltip,
   Legend,
+  Colors,
 } from "chart.js";
 import { PolarArea } from "react-chartjs-2";
 
-ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
+ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend, Colors);
 
 export default function Polar() {
   useEditorPanelConfig([
@@ -28,10 +29,10 @@ export default function Polar() {
       type: "color",
       source: "colors",
       allowMultiple: false,
-      defaultValue: "#8884d8",
+      defaultValue: "#e45740",
     },
     {
-      name: "useColor",
+      name: "singleColor",
       type: "toggle",
       source: "colors",
       defaultValue: false,
@@ -60,24 +61,29 @@ export default function Polar() {
     const values = elementData[config.size];
     setLabels(labels);
     setValues(values);
-    setDataPolar({
-      labels: labels,
-      datasets: [
-        {
-          data: values,
-          backgroundColor: config.useColor
-            ? [...Array(labels.length)].fill(config.chartColor)
-            : null,
+    if (labels && values && labels.length > 0 && values.length > 0) {
+      setDataPolar({
+        labels: labels,
+        datasets: [
+          {
+            data: values,
+            backgroundColor: config.singleColor
+              ? [...Array(labels.length)].fill(config.chartColor)
+              : null,
+          },
+        ],
+      });
+      setOptions({
+        plugins: {
+          legend: {
+            display: config.showLegend,
+          },
+          colors: {
+            enabled: true,
+          },
         },
-      ],
-    });
-    setOptions({
-      plugins: {
-        legend: {
-          display: config.showLegend,
-        },
-      },
-    });
+      });
+    }
   }, [elementColumns, config, elementData]);
 
   const errorStyle = {
