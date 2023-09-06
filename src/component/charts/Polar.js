@@ -115,7 +115,7 @@ export default function Polar() {
               centerPointLabels: true,
               font: {
                 size: 12,
-                family: '"Circular Medium", sans-serif',
+                family: "CircularProBold-Regular",
               },
             },
           },
@@ -127,7 +127,7 @@ export default function Polar() {
               usePointStyle: true,
               color: config.legendColor,
               font: {
-                family: '"Circular Medium", sans-serif',
+                family: "CircularProBold-Regular",
               },
             },
           },

@@ -1,28 +1,35 @@
 @import url("http://fonts.cdnfonts.com/css/circular-book");
 @import url("http://fonts.cdnfonts.com/css/frutiger-lt-std-2");
 body {
-	margin: 0;
-	font-family: "Circular Medium", sans-serif;
-	fontweight: "500";
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: "Circular Medium", sans-serif;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 body {
-	background: transparent !important;
+  background: transparent !important;
 }
 
 .bg {
-	background: rgb(238, 174, 202) !important;
-	background: radial-gradient(
-		circle,
-		rgba(238, 174, 202, 1) 0%,
-		rgba(148, 187, 233, 1) 100%
-	) !important;
+  background: rgb(238, 174, 202) !important;
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  ) !important;
 
-	height: 100vh;
+  height: 100vh;
+}
+
+@font-face {
+  font-family: "CircularProBold-Regular";
+  src: local("CircularProBold-Regular"),
+    url("./assets/fonts/CircularProBold-Regular.ttf") format("truetype");
 }
