@@ -14,6 +14,7 @@ import {
   Colors,
 } from "chart.js";
 import { PolarArea } from "react-chartjs-2";
+import "./Polar.css";
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend, Colors);
 
@@ -55,7 +56,7 @@ export default function Polar() {
       type: "color",
       source: "colors",
       allowMultiple: false,
-      defaultValue: "#ffffff",
+      defaultValue: "#666666",
     },
 
     { name: "options", type: "group" },
@@ -171,17 +172,16 @@ export default function Polar() {
     );
   }
   return (
-    <div style={{ width: "100%" }}>
-      <div
-        style={{
-          padding: "20px",
-          width: "100%",
-          maxWidth: "900px",
-          margin: "0 auto",
-        }}
-      >
-        <PolarArea data={dataPolar} options={options} />
-      </div>
+    <div
+      className="chart-container"
+      style={{
+        padding: "20px",
+        width: "100%",
+        maxWidth: "500px",
+        margin: "auto",
+      }}
+    >
+      <PolarArea data={dataPolar} options={options} />
     </div>
   );
 }
