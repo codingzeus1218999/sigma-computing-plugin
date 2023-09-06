@@ -103,6 +103,9 @@ export default function Polar() {
       setOptions({
         scales: {
           r: {
+            backgroundColor: config.removeBackgroundColor
+              ? "transparent"
+              : config.backgroundColor,
             ticks: {
               display: false,
             },
@@ -164,14 +167,7 @@ export default function Polar() {
     );
   }
   return (
-    <div
-      style={{
-        width: "100%",
-        background: config.removeBackgroundColor
-          ? "transparent"
-          : config.backgroundColor,
-      }}
-    >
+    <div style={{ width: "100%" }}>
       <div style={{ padding: "20px", width: "900px", margin: "0 auto" }}>
         <PolarArea data={dataPolar} options={options} />
       </div>
