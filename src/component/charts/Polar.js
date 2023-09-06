@@ -114,6 +114,7 @@ export default function Polar() {
               centerPointLabels: true,
               font: {
                 size: 12,
+                family: '"Circular Medium", sans-serif',
               },
             },
           },
@@ -124,6 +125,9 @@ export default function Polar() {
             labels: {
               usePointStyle: true,
               color: config.legendColor,
+              font: {
+                family: '"Circular Medium", sans-serif',
+              },
             },
           },
           colors: {
@@ -168,7 +172,14 @@ export default function Polar() {
   }
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ padding: "20px", width: "900px", margin: "0 auto" }}>
+      <div
+        style={{
+          padding: "20px",
+          width: "100%",
+          maxWidth: "900px",
+          margin: "0 auto",
+        }}
+      >
         <PolarArea data={dataPolar} options={options} />
       </div>
     </div>
