@@ -93,6 +93,7 @@ export default function Polar() {
         datasets: [
           {
             data: values,
+            borderWidth: 0,
             backgroundColor: config.singleColor
               ? [...Array(labels.length)].fill(config.chartColor)
               : null,
@@ -102,6 +103,9 @@ export default function Polar() {
       setOptions({
         scales: {
           r: {
+            ticks: {
+              display: false,
+            },
             pointLabels: {
               display: config.showLabel,
               centerPointLabels: true,
